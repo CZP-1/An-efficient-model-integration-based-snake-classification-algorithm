@@ -1,0 +1,15 @@
+model: convnext_large_384_in22ft1k
+pretrained: true
+num_classes: 1572
+img_size: 384
+batch_size: 1
+
+apex_amp: true
+
+
+sched: plateau
+epochs: 100
+patience_epochs: 1
+decay_rate: 0.5
+
+eval_metric: loss

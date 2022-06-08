@@ -1,0 +1,15 @@
+model: tf_efficientnet_b6_ns
+pretrained: true
+num_classes: 1572
+img_size: 600
+batch_size: 64
+
+apex_amp: true
+
+
+sched: plateau
+epochs: 100
+patience_epochs: 1
+decay_rate: 0.5
+
+eval_metric: loss

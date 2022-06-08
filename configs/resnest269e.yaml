@@ -1,0 +1,15 @@
+model: resnest269e
+pretrained: true
+num_classes: 1572
+img_size: 416
+batch_size: 32
+
+apex_amp: true
+
+
+sched: multistep
+epochs: 100
+decay_epochs: [8,15,20,25]
+decay_rate: 0.1
+
+eval_metric: loss
