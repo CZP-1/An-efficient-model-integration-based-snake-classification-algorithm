@@ -12,8 +12,8 @@
     #### pytorch model implementation [timm](https://github.com/rwightman/pytorch-image-models)
 
 ### 1.1. Dataset
-In this project, we use a large fungi's datasets from this challenge to evaluate performance:
-* [Fungi2022](https://www.kaggle.com/competitions/fungiclef2022/data)
+In this project, we use a large snake's datasets from this challenge to evaluate performance:
+* [SnakeCLEF2022](https://www.kaggle.com/competitions/snakeclef2022/data)
 
 ### 1.2. OS
 - [x] Windows10
@@ -50,7 +50,7 @@ python train_f1.py ./matadata/SnakeCLEF2022-small_size/SnakeCLEF2022-small_size/
 2. Add data augment and continue fine-tuning
 ```
 python train_f1.py ./matadata/SnakeCLEF2022-small_size/SnakeCLEF2022-small_size/1990 -c configs/swin_large_384.yaml \
-        --output ./output/Swin-TF/DF20/All_aug/freeze_layer_2 \
+        --output ./output/Swin-TF/All_aug/freeze_layer_2 \
         --initial-checkpoint ./output/Swin-TF/freeze_layer_2/20220430-123449-swin_large_patch4_window12_384-384/Best_Top1-ACC.pth.tar \
         --freeze-layer 2 \
         --lr 0.001 \
@@ -66,8 +66,8 @@ python train_f1.py ./matadata/SnakeCLEF2022-small_size/SnakeCLEF2022-small_size/
 3. Modify the loss function and continue fine-tuning
 ```
 python train_f1.py ./matadata/SnakeCLEF2022-small_size/SnakeCLEF2022-small_size/1990 -c configs/swin_large_384.yaml \
-        --output ./output/Swin-TF/DF20/new_loss/freeze_layer_2 \
-        --initial-checkpoint ./output/Swin-TF/DF20/All_aug/freeze_layer_2/20220430-123449-swin_large_patch4_window12_384-384/Best_Top1-ACC.pth.tar \
+        --output ./output/Swin-TF/new_loss/freeze_layer_2 \
+        --initial-checkpoint ./output/Swin-TF/All_aug/freeze_layer_2/20220430-123449-swin_large_patch4_window12_384-384/Best_Top1-ACC.pth.tar \
         --freeze-layer 2 \
         --lr 0.001 \
         --batch-size 32 \
@@ -85,9 +85,9 @@ python train_f1.py ./matadata/SnakeCLEF2022-small_size/SnakeCLEF2022-small_size/
 python train_f1.py ./matadata/SnakeCLEF2022-small_size/SnakeCLEF2022-small_size/1990 -c configs/swin_large_384.yaml \
          --batch-size 32 \
          --img-size 384 \
-         --output ./output/Swin-TF/DF20/All_data/swin_large_384 \
+         --output ./output/Swin-TF/All_data/swin_large_384 \
          --freeze-layer 2 \
-         --initial-checkpoint ./output/Swin-TF/DF20/new_loss/freeze_layer_2/20220502-114033-swin_large_patch4_window12_384-384/Best_Top1-ACC.pth.tar \
+         --initial-checkpoint ./output/Swin-TF/new_loss/freeze_layer_2/20220502-114033-swin_large_patch4_window12_384-384/Best_Top1-ACC.pth.tar \
          --lr 0.001 \
          --cutmix 1 \
          --color-jitter 0.4 \
